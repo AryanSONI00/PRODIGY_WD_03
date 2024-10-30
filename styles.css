@@ -1,0 +1,163 @@
+/* Loader Styles */
+.mini-loader-content {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#b0,
+#b1,
+#b2,
+#b3,
+#b4 {
+	animation: 4s infinite ease;
+}
+
+#b0 {
+	animation-name: b0;
+	transform-origin: 250px 250px;
+}
+#b1 {
+	animation-name: b1;
+}
+#b2 {
+	animation-name: b2;
+}
+#b3 {
+	animation-name: b3;
+}
+#b4 {
+	animation-name: b4;
+}
+#resultText {
+	color: #f1c40f;
+}
+@keyframes b0 {
+	0%,
+	100% {
+		transform: rotate(0);
+	}
+	25% {
+		transform: rotate(-90deg);
+	}
+	50% {
+		transform: rotate(-180deg);
+	}
+	75% {
+		transform: rotate(-270deg);
+	}
+}
+
+@keyframes b1, b2, b3, b4 {
+	0%,
+	100% {
+		transform: translate(0, 0);
+	}
+	25% {
+		transform: translate(355px, 0);
+	}
+	50% {
+		transform: translate(355px, 355px);
+	}
+	75% {
+		transform: translate(0, 355px);
+	}
+}
+
+/* Tic-Tac-Toe Styles */
+body {
+	background-color: #212121;
+	color: white;
+}
+
+.tic-cell {
+	transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tic-cell.clicked {
+	transform: scale(1.1);
+}
+
+.tic-cell:hover {
+	background-color: #666666;
+}
+
+/* Winning cell animation */
+@keyframes win-animation {
+	0% {
+		background-color: white;
+	}
+	50% {
+		background-color: #ff0000;
+	}
+	100% {
+		background-color: white;
+	}
+}
+
+.winning-cell {
+	animation: win-animation 1s infinite;
+}
+
+/* Hide landing page initially and display after loader */
+.hidden {
+	display: none;
+}
+
+.modal-backdrop.show {
+	backdrop-filter: blur(5px);
+}
+
+/* Reset Button Style */
+button {
+	display: inline-block;
+	width: 150px;
+	height: 50px;
+	border-radius: 10px;
+	border: 1px solid #03045e;
+	position: relative;
+	overflow: hidden;
+	transition: all 0.5s ease-in;
+	z-index: 1;
+	margin-top: 20px;
+}
+
+button::before,
+button::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	width: 0;
+	height: 100%;
+	transform: skew(15deg);
+	transition: all 0.5s;
+	overflow: hidden;
+	z-index: -1;
+}
+
+button::before {
+	left: -10px;
+	background: #240046;
+}
+
+button::after {
+	right: -10px;
+	background: #5a189a;
+}
+
+button:hover::before,
+button:hover::after {
+	width: 58%;
+}
+
+button:hover span {
+	color: #e0aaff;
+	transition: 0.3s;
+}
+
+button span {
+	color: #03045e;
+	font-size: 18px;
+	transition: all 0.3s ease-in;
+}
